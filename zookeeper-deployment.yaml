@@ -1,11 +1,3 @@
-# kubernetes-zookeeper
-zookeeper cluster for kubernetes
-
-kubernete下zookeeper，支持集群或者单机模式 -> [docker hub地址](https://hub.docker.com/r/jonathanwx/kubernetes-zookeeper)
-
-
-`zookeeper.yaml`
-``` yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -56,5 +48,3 @@ spec:
   clusterIP: None
   selector:
     app: zookeeper
-```
-`kubectl apply -f zookeeper.yaml`

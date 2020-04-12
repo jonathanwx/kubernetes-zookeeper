@@ -27,11 +27,11 @@ function create_config() {
       fi
       echo "${SERVER_STR}:2888:3888" >>/zookeeper/conf/zoo.cfg
     done
-    mkdir -p /zookeeper/data/${MY_ID}
-    rm -rf /zookeeper/data/${MY_ID}/myid
-    echo "${MY_ID}" >>/zookeeper/data/${MY_ID}/myid
-    sed -i "s/^dataDir=.*$/dataDir=\/zookeeper\/data\/${MY_ID}/g" /zookeeper/conf/zoo.cfg
-    sed -i "s/^ZOO_LOG_DIR=.*$/ZOO_LOG_DIR=\"\/zookeeper\/log\/${MY_ID}\"/g" /zookeeper/conf/zookeeper-env.sh
+    mkdir -p /zookeeper/data/${HOST}
+    rm -rf /zookeeper/data/${HOST}/myid
+    echo "${MY_ID}" >>/zookeeper/data/${HOST}/myid
+    sed -i "s/^dataDir=.*$/dataDir=\/zookeeper\/data\/${HOST}/g" /zookeeper/conf/zoo.cfg
+    sed -i "s/^ZOO_LOG_DIR=.*$/ZOO_LOG_DIR=\"\/zookeeper\/log\/${HOST}\"/g" /zookeeper/conf/zookeeper-env.sh
   else
     sed -i "s/^dataDir=.*$/dataDir=\/zookeeper\/data/g" /zookeeper/conf/zoo.cfg
     sed -i "s/^ZOO_LOG_DIR=.*$/ZOO_LOG_DIR=\/zookeeper\/log/g" /zookeeper/conf/log4j.properties
